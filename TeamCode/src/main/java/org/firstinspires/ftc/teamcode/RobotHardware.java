@@ -50,7 +50,7 @@ import com.qualcomm.robotcore.util.Range;
  *
  * Or... In OnBot Java, add a new file named RobotHardware.java, select this sample, and select Not an OpMode.
  * Also add a new OpMode, select the sample ConceptExternalHardwareClass.java, and select TeleOp.
- *
+ *ggg
  */
 
 public class RobotHardware {
