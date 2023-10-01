@@ -56,12 +56,12 @@ public class ConceptTensorFlowObjectDetectionEasy extends LinearOpMode {
     /**
      * The variable to store our instance of the TensorFlow Object Detection processor.
      */
-    private TfodProcessor tfod;
+    private TfodProcessor tfod; //responsible for detecting the objects
 
     /**
      * The variable to store our instance of the vision portal.
      */
-    private VisionPortal visionPortal;
+    private VisionPortal visionPortal; // responsible for reading the objects
 
     @Override
     public void runOpMode() {
