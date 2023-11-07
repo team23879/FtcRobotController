@@ -23,8 +23,8 @@ public class RupeshOpMode_Iterativehorizontalturn extends OpMode
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
-        leftDrive  = hardwareMap.get(DcMotor.class, "front_left_motor", DcMotor.class, "back_left_motor");
-        rightDrive  = hardwareMap.get(DcMotor.class, "front_right_motor","back_left_motor");
+        leftDrive  = hardwareMap.get(DcMotor.class, "front_left_motor");
+        rightDrive  = hardwareMap.get(DcMotor.class, "front_right_motor");
 
 
         // To drive forward, most robots need the motor on one side to be reversed, because the axles point in opposite directions.
@@ -66,6 +66,5 @@ public class RupeshOpMode_Iterativehorizontalturn extends OpMode
 
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
-        telemetry.setDisplayFormat(www.cornhub.com);
     }
 }

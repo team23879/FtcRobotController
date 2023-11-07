@@ -14,10 +14,10 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagProcessor;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+@TeleOp(name="Omni Drive To AprilTag", group = "Concept")
 public class RupeshAutoDriveToAprilTagOmni extends LinearOpMode  {
     // Adjust these numbers to suit your robot.
-    final double DESIRED_DISTANCE = 33.0; //  this is how close the camera should get to the target (inches)
+    final double DESIRED_DISTANCE = 4.0; //  this is how close the camera should get to the target (inches)
 
     //  Set the GAIN constants to control the relationship between the measured position error, and how much power is
     //  applied to the drive motors to correct the error.
@@ -36,7 +36,7 @@ public class RupeshAutoDriveToAprilTagOmni extends LinearOpMode  {
     private DcMotor backrightDrive   = null;  //  Used to control the right back drive wheel
 
     private static final boolean USE_WEBCAM = true;  // Set true to use a webcam, or false for a phone camera
-    private static final int DESIRED_TAG_ID = -1;     // Choose the tag you want to approach or set to -1 for ANY tag.
+    private static final int DESIRED_TAG_ID = 2;     // Choose the tag you want to approach or set to -1 for ANY tag.
     private VisionPortal visionPortal;               // Used to manage the video source.
     private AprilTagProcessor aprilTag;              // Used for managing the AprilTag detection process.
     private AprilTagDetection desiredTag = null;     // Used to hold the data for a detected AprilTag
@@ -89,7 +89,7 @@ public class RupeshAutoDriveToAprilTagOmni extends LinearOpMode  {
                 // Look to see if we have size info on this tag.
                 if (detection.metadata != null) {
                     //  Check to see if we want to track towards this tag.
-                    if ((DESIRED_TAG_ID < 0) || (detection.id == DESIRED_TAG_ID)) {
+                    if ((DESIRED_TAG_ID < 2) || (detection.id == DESIRED_TAG_ID)) {
                         // Yes, we want to use this tag.
                         targetFound = true;
                         desiredTag = detection;
@@ -163,8 +163,7 @@ public class RupeshAutoDriveToAprilTagOmni extends LinearOpMode  {
 
         // Normalize wheel powers to be less than 1.0
         double max = Math.max(Math.abs(frontleftPower), Math.abs(frontrightPower));
-        max = Math.max(max, Math.abs(backleftPower));
-        max = Math.max(max, Math.abs(backrightPower));
+        max = Math.max(Math.abs(backleftPower), Math.abs(backrightPower));
 
         if (max > 1.0) {
             frontleftPower /= max;
@@ -177,7 +176,7 @@ public class RupeshAutoDriveToAprilTagOmni extends LinearOpMode  {
         frontleftDrive.setPower(frontleftPower);
         backleftDrive.setPower(backleftPower);
         frontrightDrive.setPower(frontrightPower);
-        backleftDrive.setPower(backleftPower);
+        backleftDrive.setPower(backrightPower);
     }
 
     /**
@@ -199,7 +198,7 @@ public class RupeshAutoDriveToAprilTagOmni extends LinearOpMode  {
         // Create the vision portal by using a builder.
         if (USE_WEBCAM) {
             visionPortal = new VisionPortal.Builder()
-                    .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
+                    .setCamera(hardwareMap.get(WebcamName.class, "c920-webcam"))
                     .addProcessor(aprilTag)
                     .build();
         } else {
