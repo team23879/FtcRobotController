@@ -74,7 +74,7 @@ public class RupeshOpMode_Iterative extends OpMode
         // leftPower  = -gamepad1.left_stick_y ;
         // rightPower = -gamepad1.right_stick_y ;
 
-        // Send calculated power to wheels
+        // Send calculated power to wheels //p
         frontleftDrive.setPower(frontleftPower);
         backleftDrive.setPower(backleftPower);
 
