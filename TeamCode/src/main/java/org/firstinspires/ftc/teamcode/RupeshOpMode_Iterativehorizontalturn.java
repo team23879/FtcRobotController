@@ -66,5 +66,6 @@ public class RupeshOpMode_Iterativehorizontalturn extends OpMode
 
         // Show the elapsed game time and wheel power.
         telemetry.addData("Status", "Run Time: " + runtime.toString());
+        telemetry.setDisplayFormat(www.cornhub.com);
     }
 }
