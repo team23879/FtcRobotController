@@ -233,8 +233,7 @@ public class RobotAutoDriveToAprilTagOmni extends LinearOpMode
         double rightBackPower    =  x -y +yaw;
 
         // Normalize wheel powers to be less than 1.0
-        double max = Math.max(Math.abs(leftFrontPower));
-        max = Math.max(max, Math.abs(rightFrontPower));
+        double max = Math.max(Math.abs(leftFrontPower), Math.abs(rightFrontPower));
         max = Math.max(max, Math.abs(leftBackPower));
         max = Math.max(max, Math.abs(rightBackPower));
 
