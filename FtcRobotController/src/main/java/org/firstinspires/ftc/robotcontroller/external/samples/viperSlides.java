@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 @TeleOp
-public class rightviper extends LinearOpMode {
+public class viperSlides extends LinearOpMode {
     private LinearOpMode myOpMode = null;
     private DcMotor rightSlider = null;
 
